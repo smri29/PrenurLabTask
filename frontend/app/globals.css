@@ -1,0 +1,147 @@
+@import "tailwindcss";
+
+:root {
+  --bg-0: #dbeafe;
+  --bg-1: #e2e8f0;
+  --bg-2: #f0f9ff;
+  --mint: #14b8a6;
+  --cyan: #06b6d4;
+  --amber: #f59e0b;
+  --text-main: #0f172a;
+  --text-muted: #334155;
+  --surface: rgba(248, 250, 252, 0.72);
+  --surface-soft: rgba(255, 255, 255, 0.64);
+  --stroke: rgba(148, 163, 184, 0.38);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--text-main);
+  font-family: var(--font-body), "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at 12% 15%, rgba(14, 165, 233, 0.24), transparent 35%),
+    radial-gradient(circle at 84% 18%, rgba(45, 212, 191, 0.2), transparent 34%),
+    radial-gradient(circle at 35% 88%, rgba(251, 191, 36, 0.14), transparent 32%),
+    linear-gradient(140deg, var(--bg-0), var(--bg-1) 46%, var(--bg-2));
+  background-attachment: fixed;
+}
+
+.app-shell {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 9.5rem;
+}
+
+.floating-orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(22px);
+  opacity: 0.6;
+  animation: drift 13s ease-in-out infinite;
+}
+
+.floating-orb.one {
+  width: 15rem;
+  height: 15rem;
+  right: -2rem;
+  top: 4rem;
+  background: rgba(14, 165, 233, 0.2);
+}
+
+.floating-orb.two {
+  width: 11rem;
+  height: 11rem;
+  left: -2rem;
+  bottom: 3.5rem;
+  background: rgba(20, 184, 166, 0.18);
+  animation-delay: 1.4s;
+}
+
+.page-wrap {
+  position: relative;
+  margin: 1.5rem auto 0;
+  width: 100%;
+  max-width: 74rem;
+  flex: 1;
+}
+
+.glass-card {
+  border: 1px solid var(--stroke);
+  background: var(--surface);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.1);
+}
+
+.glass-soft {
+  border: 1px solid rgba(148, 163, 184, 0.32);
+  background: var(--surface-soft);
+  backdrop-filter: blur(8px);
+}
+
+.brand-title {
+  font-family: var(--font-heading), "Trebuchet MS", sans-serif;
+  letter-spacing: 0.01em;
+}
+
+.section-title {
+  font-family: var(--font-heading), "Gill Sans", sans-serif;
+}
+
+.subtle-text {
+  color: var(--text-muted);
+}
+
+.pill-btn {
+  border-radius: 9999px;
+  padding: 0.56rem 1rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: transform 160ms ease, opacity 160ms ease, box-shadow 160ms ease;
+}
+
+.pill-btn:hover {
+  transform: translateY(-1px);
+}
+
+.pill-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-14px) scale(1.03);
+  }
+}
+
+@media (max-width: 768px) {
+  .app-shell {
+    padding: 0.9rem;
+    padding-bottom: 11rem;
+  }
+
+  .page-wrap {
+    margin-top: 1rem;
+  }
+}
