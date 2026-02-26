@@ -1,0 +1,76 @@
+{
+  "info": {
+    "name": "PrenurLab Task API",
+    "description": "Postman collection for the PL assessment backend.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:5000/api" }
+  ],
+  "item": [
+    {
+      "name": "Auth - Register",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{baseUrl}}/auth/register",
+        "body": { "mode": "raw", "raw": "{\n  \"name\": \"Test User\",\n  \"email\": \"user@example.com\",\n  \"password\": \"Password123!\"\n}" }
+      }
+    },
+    {
+      "name": "Auth - Login",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{baseUrl}}/auth/login",
+        "body": { "mode": "raw", "raw": "{\n  \"email\": \"user@example.com\",\n  \"password\": \"Password123!\"\n}" }
+      }
+    },
+    {
+      "name": "Products - List",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/products?page=1&limit=10&search="
+      }
+    },
+    {
+      "name": "Products - Create (Admin)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{baseUrl}}/products",
+        "body": { "mode": "raw", "raw": "{\n  \"name\": \"Keyboard\",\n  \"price\": 50,\n  \"stock\": 20,\n  \"description\": \"Mechanical keyboard\"\n}" }
+      }
+    },
+    {
+      "name": "Cart - Add",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{baseUrl}}/cart",
+        "body": { "mode": "raw", "raw": "{\n  \"productId\": \"<replace_product_id>\",\n  \"quantity\": 1\n}" }
+      }
+    },
+    {
+      "name": "Cart - Get",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/cart"
+      }
+    },
+    {
+      "name": "Orders - Place",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/orders"
+      }
+    },
+    {
+      "name": "Reports - Summary (Admin)",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/reports/summary"
+      }
+    }
+  ]
+}
