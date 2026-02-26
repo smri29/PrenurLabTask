@@ -1,0 +1,12 @@
+process.env.NODE_ENV = 'test';
+process.env.PORT = '5000';
+process.env.MONGO_URI = process.env.MONGO_URI ?? 'mongodb://127.0.0.1:27017/pl-task-test';
+process.env.JWT_SECRET = process.env.JWT_SECRET ?? 'test-secret-key';
+process.env.JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN ?? '1d';
+process.env.CLIENT_URL = process.env.CLIENT_URL ?? 'http://localhost:3000';
+process.env.COOKIE_NAME = process.env.COOKIE_NAME ?? 'pl_auth_token';
+process.env.COOKIE_SECURE = process.env.COOKIE_SECURE ?? 'false';
+process.env.COOKIE_SAMESITE = process.env.COOKIE_SAMESITE ?? 'lax';
+process.env.ADMIN_NAME = process.env.ADMIN_NAME ?? 'System Admin';
+process.env.ADMIN_EMAIL = process.env.ADMIN_EMAIL ?? 'admin@example.com';
+process.env.ADMIN_PASSWORD = process.env.ADMIN_PASSWORD ?? 'Admin123!@';
